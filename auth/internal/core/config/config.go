@@ -7,8 +7,9 @@ import (
 )
 
 type Config struct {
-	Port int    `mapstructure:"port" json:"port" yaml:"port"`
-	Host string `mapstructure:"host" json:"host" yaml:"host"`
+	Port      int    `mapstructure:"port" json:"port" yaml:"port"`
+	Host      string `mapstructure:"host" json:"host" yaml:"host"`
+	JWTSecret string `mapstructure:"jwt_secret" json:"jwt_secret" yaml:"jwt_secret"`
 }
 
 func LoadConfig() *Config {
@@ -26,8 +27,9 @@ func LoadConfig() *Config {
 	}
 
 	return &Config{
-		Port: port,
-		Host: GetEnvOrDefault("HOST", "localhost"),
+		Port:      port,
+		Host:      GetEnvOrDefault("HOST", "localhost"),
+		JWTSecret: GetEnvOrDefault("JWT_SECRET", "secret"),
 	}
 }
 

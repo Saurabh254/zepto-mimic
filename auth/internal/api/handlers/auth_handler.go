@@ -19,7 +19,7 @@ func RegisterAuthRoutes(c *gin.RouterGroup) {
 //	@Produce		json
 //	@Success		200	{object}	map[string]interface{}
 //	@Failure		400	{object}	map[string]interface{}
-//	@Router			/auth/login [post]
+//	@Router			/api/v1/auth/login [post]
 func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"msg": "login",

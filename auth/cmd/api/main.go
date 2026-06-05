@@ -16,7 +16,7 @@ import (
 // @title Auth API
 // @version 1.0
 // @description Auth service
-// @host localhost:8080
+// @host localhost:8000
 // @BasePath /
 func main() {
 	cfg := config.LoadConfig()
@@ -29,11 +29,11 @@ func main() {
 	api.RegisterRoutes(r.Group("/api/v1"))
 	api.RegisterHealthRoutes(r.Group("/healthz"))
 
-	r.GET("/swagger/*any",
+	r.GET("/docs/*any",
 		ginSwagger.WrapHandler(swaggerFiles.Handler),
 	)
 
-	// Start server on port 8080 (default)
-	// Server will listen on 0.0.0.0:8080 (localhost:8080 on Windows)
+	// Start server on port 8000 (default)
+	// Server will listen on 0.0.0.0:8000 (localhost:8000 on Windows)
 	r.Run(cfg.Address())
 }

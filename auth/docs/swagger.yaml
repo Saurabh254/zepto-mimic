@@ -1,12 +1,12 @@
 basePath: /
-host: localhost:8080
+host: localhost:8000
 info:
   contact: {}
   description: Auth service
   title: Auth API
   version: "1.0"
 paths:
-  /auth/login:
+  /api/v1/auth/login:
     post:
       consumes:
       - application/json
