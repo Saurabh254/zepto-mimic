@@ -9,7 +9,7 @@ import (
 	"github.com/saurabh254/zepto-mimic/auth/internal/repositories"
 )
 
-func LoginUser(ctx context.Context, email, password string, db *database.Database) (string, error) {
+func LoginUser(ctx context.Context, email, password string, db database.Database) (string, error) {
 	user_repo := repositories.NewUserRepository(db, ctx)
 	user, err := user_repo.GetUserByEmail(email)
 	if err != nil {

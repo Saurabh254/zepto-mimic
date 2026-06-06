@@ -8,11 +8,11 @@ import (
 )
 
 type UserRepositoryImpl struct {
-	db  *database.Database
+	db  database.Database
 	ctx context.Context
 }
 
-func NewUserRepository(db *database.Database, ctx context.Context) *UserRepositoryImpl {
+func NewUserRepository(db database.Database, ctx context.Context) *UserRepositoryImpl {
 	return &UserRepositoryImpl{
 		db:  db,
 		ctx: ctx,
@@ -32,7 +32,6 @@ func (ar *UserRepositoryImpl) GetUserByEmail(email string) (*models.User, error)
 		&user.ID,
 		&user.Email,
 		&user.PasswordHash,
-		&user.HashSalt,
 		&user.CreatedAt,
 		&user.UpdatedAt,
 	)
@@ -93,7 +92,6 @@ func (ar *UserRepositoryImpl) GetAllUsers() ([]models.User, error) {
 			&user.ID,
 			&user.Email,
 			&user.PasswordHash,
-			&user.HashSalt,
 			&user.CreatedAt,
 			&user.UpdatedAt,
 		)
